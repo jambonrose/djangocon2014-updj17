@@ -13,11 +13,17 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Knight',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', serialize=False, auto_created=True)),
-                ('name', models.CharField(max_length=63)),
+                ('id',
+                 models.AutoField(
+                     primary_key=True,
+                     verbose_name='ID',
+                     serialize=False,
+                     auto_created=True)),
+                ('name',
+                 models.CharField(
+                     max_length=63)),
             ],
-            options={
-            },
+            options={},
             bases=(models.Model,),
         ),
     ]
