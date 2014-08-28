@@ -18,7 +18,7 @@ class Migration(DataMigration):
         ])
 
     def backwards(self, orm):
-        "Write your backwards methods here."
+        orm.Knight.objects.all().delete()
 
     models = {
         u'roundtable.knight': {
