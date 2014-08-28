@@ -3,12 +3,19 @@ from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import DataMigration
 from django.db import models
-from django.core.management import call_command
 
 class Migration(DataMigration):
 
     def forwards(self, orm):
-        call_command('loaddata', '0002_add_knight_data.json')
+        orm.Knight.objects.bulk_create([
+            orm.Knight(name='Bedevere'),
+            orm.Knight(name='Bors'),
+            orm.Knight(name='Ector'),
+            orm.Knight(name='Galahad'),
+            orm.Knight(name='Gawain'),
+            orm.Knight(name='Lancelot'),
+            orm.Knight(name='Robin'),
+        ])
 
     def backwards(self, orm):
         "Write your backwards methods here."
