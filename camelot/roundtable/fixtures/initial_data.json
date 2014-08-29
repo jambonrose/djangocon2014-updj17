@@ -1,0 +1,51 @@
+[
+{
+  "pk": 1,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Bedevere"
+  }
+},
+{
+  "pk": 2,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Bors"
+  }
+},
+{
+  "pk": 3,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Ector"
+  }
+},
+{
+  "pk": 4,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Galahad"
+  }
+},
+{
+  "pk": 5,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Gawain"
+  }
+},
+{
+  "pk": 6,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Lancelot"
+  }
+},
+{
+  "pk": 7,
+  "model": "roundtable.knight",
+  "fields": {
+    "name": "Robin"
+  }
+}
+]
