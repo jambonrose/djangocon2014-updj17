@@ -18,7 +18,8 @@ def add_knight_data(apps, schema_editor):
 
 
 def remove_knight_data(apps, schema_editor):
-    pass
+    Knight = apps.get_model('roundtable', 'Knight')
+    Knight.objects.all().delete()
 
 
 class Migration(migrations.Migration):
