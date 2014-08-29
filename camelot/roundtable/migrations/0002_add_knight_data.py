@@ -1,11 +1,20 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models, migrations
-from django.core.management import call_command
 
 
 def add_knight_data(apps, schema_editor):
-    call_command('loaddata', 'knight_data.json')
+    Knight = apps.get_model('roundtable', 'Knight')
+    Knight.objects.bulk_create([
+        Knight(name='Arthur'),
+        Knight(name='Bedevere'),
+        Knight(name='Bors'),
+        Knight(name='Ector'),
+        Knight(name='Galahad'),
+        Knight(name='Gawain'),
+        Knight(name='Lancelot'),
+        Knight(name='Robin'),
+    ])
 
 
 def remove_knight_data(apps, schema_editor):
