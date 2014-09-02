@@ -4,7 +4,11 @@ from __future__ import unicode_literals
 from django.db import models, migrations
 
 def set_lancelot_traitor(apps, schema_editor):
-    pass
+    Knight = apps.get_model('roundtable', 'Knight')
+    lancelot = Knight.objects.get(
+        name__iexact='Lancelot')
+    lancelot.traitor = True
+    lancelot.save()
 
 def unset_lancelot_traitor(apps, schema_editor):
     pass
