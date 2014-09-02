@@ -3,6 +3,11 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 
+def set_lancelot_traitor(apps, schema_editor):
+    pass
+
+def unset_lancelot_traitor(apps, schema_editor):
+    pass
 
 class Migration(migrations.Migration):
 
@@ -11,4 +16,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+            migrations.RunPython(
+                set_lancelot_traitor,
+                reverse_code=unset_lancelot_traitor)
     ]
