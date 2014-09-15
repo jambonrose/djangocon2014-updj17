@@ -8,11 +8,12 @@ from django.core.checks import register, Warning
 def check_model_str(app_configs=None, **kwargs):
     problem_models = [
         model
-        for app in (app_configs if app_configs
-                    else camelot_apps.get_app_configs())
-        if not app.name.startswith('django.contrib')
-        for model in app.get_models()
-        if '__str__' not in model.__dict__
+        for model in camelot_apps.get_models()
+        if (app_configs is None
+            or model._meta.app_config in app_configs)
+        and not model._meta.app_config.name.startswith(
+            'django.contrib')
+        and '__str__' not in model.__dict__
     ]
     errors = [
         Warning(
