@@ -9,6 +9,7 @@ from django.utils.encoding import python_2_unicode_compatible
 class Knight(models.Model):
     name = models.CharField(max_length=63)
     traitor = models.BooleanField(default=False)
+    dances = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
