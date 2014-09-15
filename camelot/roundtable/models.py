@@ -21,4 +21,11 @@ class Knight(models.Model):
 
     @classmethod
     def _check_traitor_field(cls, **kwargs):
-        return []
+        if 'traitor' not in cls._meta.get_all_field_names():
+            return [
+                Error(
+                    "Knight model must have a traitor field.",
+                    obj=cls,
+                    id='rtable.E001')]
+        else:
+            return []
