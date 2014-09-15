@@ -1,6 +1,7 @@
 # -*- coding: utf-8
 from __future__ import unicode_literals
 from django.db import models
+from django.core.checks import Error
 from django.utils.encoding import python_2_unicode_compatible
 
 
@@ -15,4 +16,10 @@ class Knight(models.Model):
     @classmethod
     def check(cls, **kwargs):
         errors = super(Knight, cls).check(**kwargs)
+        if 'traitor' not in cls._meta.get_all_field_names():
+            errors.append(
+                Error(
+                    "Knight model must have a traitor field.",
+                    obj=cls,
+                    id='rtable.E001'))
         return errors
