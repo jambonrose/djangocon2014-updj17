@@ -6,9 +6,15 @@ from django.core.checks import register, Warning
 
 @register('models')
 def check_model_str(app_configs=None, **kwargs):
+    roundtable_app = camelot_apps.get_app_config('rtable')
+    if (app_configs is None
+       or roundtable_app in app_configs):
+        evaluated_models = roundtable_app.get_models()
+    else:
+        evaluated_models = []
     problem_models = [
         model
-        for model in camelot_apps.get_models()
+        for model in evaluated_models
         if '__str__' not in model.__dict__
     ]
     errors = [
