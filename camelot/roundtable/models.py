@@ -11,3 +11,8 @@ class Knight(models.Model):
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def check(cls, **kwargs):
+        errors = super(Knight, cls).check(**kwargs)
+        return errors
