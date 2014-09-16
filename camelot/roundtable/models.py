@@ -5,11 +5,21 @@ from django.core.checks import Error
 from django.utils.encoding import python_2_unicode_compatible
 
 
+class KnightManager(models.Manager):
+    def dances_when_able(self):
+        return self.get_queryset().filter(dances=True)
+
+    def loyal(self):
+        return self.get_queryset().filter(traitor=False)
+
+
 @python_2_unicode_compatible
 class Knight(models.Model):
     name = models.CharField(max_length=63)
     traitor = models.BooleanField(default=False)
     dances = models.BooleanField(default=True)
+
+    objects = KnightManager()
 
     def __str__(self):
         return self.name
