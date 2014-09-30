@@ -22,7 +22,7 @@ def check_model_str(app_configs=None, **kwargs):
                   "en/1.7/ref/models/instances/#str"
                   " for more information."),
             obj=model,
-            id='rtable.W001',
+            id='camelot.W001',
         )
         for model in problem_models
     ]
