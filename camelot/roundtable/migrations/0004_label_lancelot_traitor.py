@@ -4,14 +4,14 @@ from __future__ import unicode_literals
 from django.db import models, migrations
 
 def set_lancelot_traitor(apps, schema_editor):
-    Knight = apps.get_model('roundtable', 'Knight')
+    Knight = apps.get_model('rtable', 'Knight')
     lancelot = Knight.objects.get(
         name__iexact='Lancelot')
     lancelot.traitor = True
     lancelot.save()
 
 def unset_lancelot_traitor(apps, schema_editor):
-    Knight = apps.get_model('roundtable', 'Knight')
+    Knight = apps.get_model('rtable', 'Knight')
     lancelot = Knight.objects.get(
         name__iexact='Lancelot')
     lancelot.traitor = False
@@ -20,7 +20,7 @@ def unset_lancelot_traitor(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('roundtable', '0003_knight_traitor'),
+        ('rtable', '0003_knight_traitor'),
     ]
 
     operations = [

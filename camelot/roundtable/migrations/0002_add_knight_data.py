@@ -4,7 +4,7 @@ from django.db import models, migrations
 
 
 def add_knight_data(apps, schema_editor):
-    Knight = apps.get_model('roundtable', 'Knight')
+    Knight = apps.get_model('rtable', 'Knight')
     Knight.objects.bulk_create([
         Knight(name='Arthur'),
         Knight(name='Bedevere'),
@@ -18,14 +18,14 @@ def add_knight_data(apps, schema_editor):
 
 
 def remove_knight_data(apps, schema_editor):
-    Knight = apps.get_model('roundtable', 'Knight')
+    Knight = apps.get_model('rtable', 'Knight')
     Knight.objects.all().delete()
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('roundtable', '0001_initial'),
+        ('rtable', '0001_initial'),
     ]
 
     operations = [

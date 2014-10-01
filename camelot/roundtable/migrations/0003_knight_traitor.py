@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('roundtable', '0002_add_knight_data'),
+        ('rtable', '0002_add_knight_data'),
     ]
 
     operations = [
