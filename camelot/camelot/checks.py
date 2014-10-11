@@ -1,10 +1,15 @@
 # -*- coding: utf-8
 from __future__ import unicode_literals
 from django.apps import apps as camelot_apps
-from django.core.checks import register, Tags, Warning
+from django.core.checks import register, Warning
+from django.core.checks import Tags as DjangoTags
 
 
-@register(Tags.models)
+class Tags(DjangoTags):
+    model_attrs = 'model_attrs'
+
+
+@register(Tags.model_attrs)
 def check_model_str(app_configs=None, **kwargs):
     problem_models = [
         model
